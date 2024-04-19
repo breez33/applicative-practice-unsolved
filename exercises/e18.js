@@ -4,9 +4,18 @@
  * Return example: 1902
  */
 
+import { maxBy } from '../exercises/e17'
+
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let countByYears = data.asteroids.map(function(asteroid, index, array) {
+      let countOfCurrentYear = array.filter(function(currentYear) {
+          return currentYear.discoveryYear === asteroid.discoveryYear;
+      });
+      
+      return { year: asteroid.discoveryYear, count: countOfCurrentYear.length };
+  });
+  
+  return maxBy(countByYears, (yearAndCount) => yearAndCount.count).year;
 }
 
 // === TEST YOURSELF ===
