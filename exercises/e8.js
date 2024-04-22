@@ -7,11 +7,8 @@ import { data } from "../data/data";
 export function findPlanetNameByMoon(data, moonName) {
   return data.planets
     .find(function(planet) {
-      return planet.moons && planet.moons.find(function(moon) {
-        return moon === moonName;
-      });
-    })
-    .name;
+      return planet.moons && planet.moons.find((moon) => moon === moonName);
+    }).name;
 }
 
 // === TEST YOURSELF ===

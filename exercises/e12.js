@@ -6,12 +6,8 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   return data.planets
-    .filter(function(planet) {
-      return planet.moons
-    })
-    .reduce(function(acc, val) {
-      return acc += val.moons.length
-    }, 0);
+    .filter((planet) => planet.moons)
+    .reduce((acc, val) => acc += val.moons.length, 0);
 }
 
 // === TEST YOURSELF ===
